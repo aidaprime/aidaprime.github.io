@@ -41,6 +41,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   h1 {
+    font-family: 'Monoton';
     font-size: 3.2em;
     line-height: 1.1;
   }
@@ -69,7 +70,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      <h1>Under construction...</h1>
+      <h1>Aida Prime</h1>
       <div>
       </div>
     </>
