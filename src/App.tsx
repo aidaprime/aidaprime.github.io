@@ -1,5 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 import { SiteBackgroundImage } from './components/SiteBackgroundImage';
+import { SocialsBlock } from './components/SocialsBlock';
+import { SocialLink } from './components/SocialLink';
+import { TIKTOK_URL, INSTAGRAM_URL, TELEGRAM_URL } from './constants';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -92,6 +95,11 @@ function App() {
       
       <h1>Aida Prime</h1>
       <h2>Art Creator | Gaming & Movies</h2>
+      <SocialsBlock>
+        <SocialLink icon="/socials/tiktok.svg" alt="TikTok" href={TIKTOK_URL} />
+        <SocialLink icon="/socials/instagram.svg" alt="Instagram" href={INSTAGRAM_URL} />
+        <SocialLink icon="/socials/telegram.svg" alt="Telegram" href={TELEGRAM_URL} />
+      </SocialsBlock>
       <div>
       </div>
     </>
