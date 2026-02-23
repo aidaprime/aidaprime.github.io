@@ -2,6 +2,16 @@ import { createGlobalStyle } from 'styled-components';
 import { SiteBackgroundImage } from './components/SiteBackgroundImage';
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-family: 'BraindGyumri';
+    src: url('/fonts/BraindGyumri.otf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'Monoton';
+    src: url('/fonts/Monoton-Regular.ttf') format('truetype');
+  }
+
   :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
