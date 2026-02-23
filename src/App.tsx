@@ -57,6 +57,13 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.1;
   }
 
+  h2 {
+    font-family: 'BraindGyumri';
+    font-size: 1.5em;
+    margin-top: -0.4em;
+    margin-bottom: 1.5em;
+  }
+
   button {
     border-radius: 8px;
     border: 1px solid transparent;
@@ -84,6 +91,7 @@ function App() {
       <SiteBackgroundImage />
       
       <h1>Aida Prime</h1>
+      <h2>Art Creator | Gaming & Movies</h2>
       <div>
       </div>
     </>
