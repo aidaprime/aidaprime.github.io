@@ -4,7 +4,13 @@ import { SocialsBlock } from './components/SocialsBlock';
 import { SocialLink } from './components/SocialLink';
 import { GalleryBox } from './components/GalleryBox';
 import { CarouselBox } from './components/CarouselBox';
-import { TIKTOK_URL, INSTAGRAM_URL, TELEGRAM_URL } from './constants';
+import {
+  TIKTOK_URL,
+  INSTAGRAM_URL,
+  TELEGRAM_URL,
+  SMALLER_RESOLUTION,
+  SMALL_RESOLUTION
+} from './constants';
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -33,7 +39,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    max-width: 1280px;
+    max-width: ${SMALLER_RESOLUTION}px;
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
@@ -61,7 +67,7 @@ const GlobalStyle = createGlobalStyle`
     font-size: 3.2em;
     line-height: 1.1;
 
-    @media (max-width: 640px) {
+    @media (max-width: ${SMALL_RESOLUTION}px) {
       font-size: 2em;
     }
   }
@@ -72,7 +78,7 @@ const GlobalStyle = createGlobalStyle`
     margin-top: -0.4em;
     margin-bottom: 1.5em;
 
-    @media (max-width: 640px) {
+    @media (max-width: ${SMALL_RESOLUTION}px) {
       font-size: 1.1em;
     }
   }
