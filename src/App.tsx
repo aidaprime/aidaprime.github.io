@@ -59,6 +59,10 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Monoton';
     font-size: 3.2em;
     line-height: 1.1;
+
+    @media (max-width: 640px) {
+      font-size: 2em;
+    }
   }
 
   h2 {
@@ -66,6 +70,10 @@ const GlobalStyle = createGlobalStyle`
     font-size: 1.5em;
     margin-top: -0.4em;
     margin-bottom: 1.5em;
+
+    @media (max-width: 640px) {
+      font-size: 1.1em;
+    }
   }
 
   button {
