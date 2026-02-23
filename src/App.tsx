@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import { SiteBackgroundImage } from './components/SiteBackgroundImage';
 import { SocialsBlock } from './components/SocialsBlock';
 import { SocialLink } from './components/SocialLink';
+import { GalleryBox } from './components/GalleryBox';
 import { TIKTOK_URL, INSTAGRAM_URL, TELEGRAM_URL } from './constants';
 
 const GlobalStyle = createGlobalStyle`
@@ -95,6 +96,7 @@ function App() {
       
       <h1>Aida Prime</h1>
       <h2>Art Creator | Gaming & Movies</h2>
+      <GalleryBox />
       <SocialsBlock>
         <SocialLink icon="/socials/tiktok.svg" alt="TikTok" href={TIKTOK_URL} />
         <SocialLink icon="/socials/instagram.svg" alt="Instagram" href={INSTAGRAM_URL} />
