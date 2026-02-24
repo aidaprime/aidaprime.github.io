@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import styled from 'styled-components';
@@ -24,7 +24,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const Viewport = styled.div`overflow: hidden;`;
+const Viewport = styled.div<{ $ready: boolean }>`
+  overflow: hidden;
+  opacity: ${({ $ready }) => ($ready ? 1 : 0)};
+  transition: opacity 0.4s ease;
+`;
 
 const Container = styled.div`
   display: flex;
@@ -53,7 +57,6 @@ const SlideInner = styled.div`
   border-radius: 12px;
   overflow: hidden;
   will-change: transform, opacity;
-  transition: opacity 0.15s ease;
 `;
 
 const SlideImage = styled.img`
@@ -69,6 +72,7 @@ export const CarouselBox = () => {
         [Autoplay({ delay: 5000, stopOnInteraction: false })]
     );
 
+    const [ready, setReady] = useState(false);
     const tweenNodes = useRef<HTMLElement[]>([]);
 
     const setTweenNodes = useCallback(() => {
@@ -83,13 +87,10 @@ export const CarouselBox = () => {
 
         const engine = emblaApi.internalEngine();
         const scrollProgress = emblaApi.scrollProgress();
-        const isScrolling = engine.dragHandler.pointerDown();
-        const slidesInView = emblaApi.slidesInView();
         const slideInfos: SlideInfo[] = [];
 
         emblaApi.scrollSnapList().forEach((scrollSnap, snapIndex) => {
             engine.slideRegistry[snapIndex].forEach((slideIndex) => {
-                if (!isScrolling && !slidesInView.includes(slideIndex)) return;
 
                 let diff = scrollSnap - scrollProgress;
                 if (engine.options.loop) {
@@ -113,8 +114,6 @@ export const CarouselBox = () => {
                 });
             });
         });
-
-        if (slideInfos.length === 0) return;
 
         slideInfos.sort((a, b) => a.diffToTarget - b.diffToTarget);
 
@@ -155,6 +154,7 @@ export const CarouselBox = () => {
 
         setTweenNodes();
         tweenSlides();
+        setReady(true);
 
         emblaApi
             .on('reInit', setTweenNodes)
@@ -173,7 +173,7 @@ export const CarouselBox = () => {
 
     return (
         <Wrapper>
-            <Viewport ref={emblaRef}>
+            <Viewport ref={emblaRef} $ready={ready}>
                 <Container>
                     {CAROUSEL_IMAGES.map((src, index) => (
                         <Slide key={index}>
