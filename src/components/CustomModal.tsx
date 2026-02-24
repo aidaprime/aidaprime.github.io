@@ -10,6 +10,7 @@ export interface CustomModalProps {
   isOpen: boolean;
   onRequestClose: () => void;
   children: ReactNode;
+  padding?: string;
 }
 
 const fadeSlideIn = keyframes`
@@ -32,13 +33,13 @@ const overlayFadeOut = keyframes`
   to   { opacity: 0; }
 `;
 
-const ModalContent = styled.div<{ $closing: boolean }>`
+const ModalContent = styled.div<{ $closing: boolean; $padding: string }>`
   position: relative;
   background: #2a2d35;
   border-radius: 12px;
   min-width: 200px;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.15);
-  padding: 3rem 2.5rem 1.5rem 2.5rem;
+  padding: ${({ $padding }) => $padding};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -70,7 +71,7 @@ const CloseButton = styled.button`
   background: none;
   border: none;
   border-radius: 1em;
-  font-size: 1.7rem;
+  font-size: 1.4rem;
   cursor: pointer;
   color: #888;
   transition: color 0.2s;
@@ -93,7 +94,7 @@ const reactModalStyles: Modal.Styles = {
   },
 };
 
-export const CustomModal = ({ isOpen, onRequestClose, children }: CustomModalProps) => {
+export const CustomModal = ({ isOpen, onRequestClose, children, padding }: CustomModalProps) => {
   const [showModal, setShowModal] = useState(false);
   const [closing, setClosing] = useState(false);
 
@@ -127,7 +128,11 @@ export const CustomModal = ({ isOpen, onRequestClose, children }: CustomModalPro
       style={reactModalStyles}
     >
       <AnimatedOverlay $closing={closing} onClick={handleClose}>
-        <ModalContent $closing={closing} onClick={(e) => e.stopPropagation()}>
+        <ModalContent
+          $closing={closing}
+          $padding={padding || "3rem 2.5rem 1.5rem 2.5rem"}
+          onClick={(e) => e.stopPropagation()}
+        >
           <CloseButton onClick={handleClose} aria-label="Close">
             &times;
           </CloseButton>

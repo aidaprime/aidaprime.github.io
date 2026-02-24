@@ -2,6 +2,7 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import { GALLERY_PREVIEW_IMAGES } from '../constants';
 import { LoadingSpinner } from './LoadingSpinner';
+import { GalleryViewer } from './GalleryViewer';
 
 const Container = styled.div`
   background-color: rgba(255, 255, 255, 0.05);
@@ -58,6 +59,7 @@ const Title = styled.h2`
 
 export const GalleryBox = () => {
   const [loadedCount, setLoadedCount] = useState(0);
+  const [viewerIndex, setViewerIndex] = useState<number | null>(null);
   const allLoaded = loadedCount >= GALLERY_PREVIEW_IMAGES.length;
 
   const handleImageLoad = () => {
@@ -70,13 +72,20 @@ export const GalleryBox = () => {
       <Container>
       <Grid>
         {GALLERY_PREVIEW_IMAGES.map((image, index) => (
-          <ImageItem key={index} src={image} alt={`Gallery ${index + 1}`} onLoad={handleImageLoad} />
+          <ImageItem
+            key={index}
+            src={image}
+            alt={`Gallery preview ${index + 1}`}
+            onLoad={handleImageLoad}
+            onClick={() => setViewerIndex(index)}
+          />
         ))}
       </Grid>
       <Overlay $isLoading={!allLoaded}>
         <LoadingSpinner />
       </Overlay>
       </Container>
+      <GalleryViewer openIndex={viewerIndex} onClose={() => setViewerIndex(null)} />
     </>
   );
 };
