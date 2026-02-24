@@ -178,7 +178,7 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof i.getDerivedStat
   justify-content: center;
   min-width: 300px;
   min-height: 300px;
-`,M1=({openIndex:i,onClose:c})=>{const o=i!==null&&i>=0&&i<eh.length,[f,s]=Yt.useState(!1),p=Yt.useRef(null);return Yt.useEffect(()=>{if(o&&i!==null){s(!0);const y=p.current;y&&y.complete&&s(!1)}else s(!1)},[i,o]),ut.jsx(cy,{isOpen:o,onRequestClose:c,padding:"40px 10px 10px 10px",children:o&&ut.jsx(ut.Fragment,{children:f?ut.jsx(A1,{children:ut.jsx(fy,{})}):ut.jsx(_1,{ref:p,src:eh[i],alt:`Gallery full ${i+1}`,style:{display:f?"none":"block"},onLoad:()=>s(!1)})})})},z1=Gt.div`
+`,M1=({openIndex:i,onClose:c})=>{const o=i!==null&&i>=0&&i<eh.length,[f,s]=Yt.useState(!1),p=Yt.useRef(null);return Yt.useEffect(()=>{if(o&&i!==null){s(!0);const y=p.current;y&&y.complete&&s(!1)}else s(!1)},[i,o]),ut.jsx(cy,{isOpen:o,onRequestClose:c,padding:"40px 10px 10px 10px",children:o&&ut.jsxs(ut.Fragment,{children:[f&&ut.jsx(A1,{children:ut.jsx(fy,{})}),ut.jsx(_1,{ref:p,src:eh[i],alt:`Gallery full ${i+1}`,style:{display:f?"none":"block"},onLoad:()=>s(!1)})]})})},z1=Gt.div`
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   padding: 12px;
