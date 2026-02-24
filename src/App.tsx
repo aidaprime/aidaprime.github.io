@@ -5,7 +5,10 @@ import { SocialLink } from './components/SocialLink';
 import { GalleryBox } from './components/GalleryBox';
 import { CarouselBox } from './components/CarouselBox';
 import {
-  TIKTOK_URL,
+  TIKTOK_URL_ONE,
+  TIKTOK_URL_ONE_TITLE,
+  TIKTOK_URL_TWO,
+  TIKTOK_URL_TWO_TITLE,
   INSTAGRAM_URL,
   TELEGRAM_URL,
   SMALLER_RESOLUTION,
@@ -13,16 +16,6 @@ import {
 } from './constants';
 
 const GlobalStyle = createGlobalStyle`
-  @font-face {
-    font-family: 'BraindGyumri';
-    src: url('/fonts/BraindGyumri.otf') format('opentype');
-  }
-
-  @font-face {
-    font-family: 'Monoton';
-    src: url('/fonts/Monoton-Regular.ttf') format('truetype');
-  }
-
   :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
     line-height: 1.5;
@@ -114,7 +107,10 @@ function App() {
       <CarouselBox />
       <GalleryBox />
       <SocialsBlock>
-        <SocialLink icon="/socials/tiktok.svg" alt="TikTok" href={TIKTOK_URL} />
+        <SocialLink icon="/socials/tiktok.svg" alt="TikTok" links={[
+          { label: TIKTOK_URL_ONE_TITLE, url: TIKTOK_URL_ONE },
+          { label: TIKTOK_URL_TWO_TITLE, url: TIKTOK_URL_TWO },
+        ]} />
         <SocialLink icon="/socials/instagram.svg" alt="Instagram" href={INSTAGRAM_URL} />
         <SocialLink icon="/socials/telegram.svg" alt="Telegram" href={TELEGRAM_URL} />
       </SocialsBlock>

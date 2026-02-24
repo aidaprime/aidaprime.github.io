@@ -1,0 +1,11 @@
+@font-face {
+  font-family: 'BraindGyumri';
+  src: url('/fonts/BraindGyumri.otf') format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Monoton';
+  src: url('/fonts/Monoton-Regular.ttf') format('truetype');
+  font-display: swap;
+}
