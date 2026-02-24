@@ -152,7 +152,6 @@ Error generating stack: `+n.message+`
   border-radius: 12px;
   overflow: hidden;
   will-change: transform, opacity;
-  transition: opacity 0.15s ease;
 `,Pv=le.img`
   display: block;
   width: 100%;
