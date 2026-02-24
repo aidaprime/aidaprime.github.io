@@ -114,6 +114,8 @@ export const CarouselBox = () => {
             });
         });
 
+        if (slideInfos.length === 0) return;
+
         slideInfos.sort((a, b) => a.diffToTarget - b.diffToTarget);
 
         const centerIdx = slideInfos.reduce(
