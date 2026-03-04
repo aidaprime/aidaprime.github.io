@@ -64,6 +64,11 @@ const SlideImage = styled.img`
   width: 100%;
   height: auto;
   object-fit: cover;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: auto;
 `;
 
 export const CarouselBox = () => {
