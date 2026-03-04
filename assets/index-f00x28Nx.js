@@ -261,6 +261,11 @@ https://fb.me/react-async-component-lifecycle-hooks`)}if(typeof i.getDerivedStat
   width: 100%;
   height: auto;
   object-fit: cover;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  pointer-events: auto;
 `,OS=()=>{const[i,c]=Ho({loop:!0,align:"center",containScroll:!1},[jo({delay:5e3,stopOnInteraction:!1})]),[o,f]=Yt.useState(!1),s=Yt.useRef([]),p=Yt.useCallback(()=>{c&&(s.current=c.slideNodes().map(m=>m.querySelector(".embla__slide__inner")))},[c]),y=Yt.useCallback(()=>{if(!c)return;const m=c.internalEngine(),v=c.scrollProgress(),h=[];c.scrollSnapList().forEach((O,C)=>{m.slideRegistry[C].forEach(L=>{let U=O-v;m.options.loop&&m.slideLooper.loopPoints.forEach(V=>{const Q=V.target();L===V.index&&Q!==0&&(U=Q<0?O-(1+v):O+(1-v))});const X=1-Math.abs(U);h.push({slideIndex:L,diffToTarget:U,scale:Mh(1-co+X*co,1-co,1),opacity:Mh(1-fo+X*fo,1-fo,1),rotateY:(1-X)*yS*Math.sign(U)})})}),h.sort((O,C)=>O.diffToTarget-C.diffToTarget);const T=h.reduce((O,C,L)=>Math.abs(h[L].diffToTarget)<Math.abs(h[O].diffToTarget)?L:O,0),g=s.current[0]?.parentElement?.offsetWidth??0,A=(O,C)=>{const L=s.current[O.slideIndex];L&&(L.style.transform=`perspective(800px) translateX(${C}px) scale(${O.scale}) rotateY(${O.rotateY}deg)`,L.style.opacity=`${O.opacity}`)};A(h[T],0);let D=0;for(let O=T+1;O<h.length;O++){const C=O-T===1?_h:Ah;D+=(1-h[O-1].scale+(1-h[O].scale))*g/2*C,A(h[O],-D)}D=0;for(let O=T-1;O>=0;O--){const C=T-O===1?_h:Ah;D+=(1-h[O+1].scale+(1-h[O].scale))*g/2*C,A(h[O],D)}},[c]);return Yt.useEffect(()=>{if(c)return p(),y(),f(!0),c.on("reInit",p).on("reInit",y).on("scroll",y).on("slideFocus",y),()=>{c.off("reInit",p).off("reInit",y).off("scroll",y).off("slideFocus",y)}},[c,p,y]),ut.jsx(vS,{children:ut.jsx(gS,{ref:i,$ready:o,children:ut.jsx(SS,{children:Xg.map((m,v)=>ut.jsx(bS,{children:ut.jsx(ES,{className:"embla__slide__inner",children:ut.jsx(TS,{src:m,alt:`Slide ${v+1}`})})},v))})})})},_S=Hg`
   :root {
     font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
